@@ -26,5 +26,7 @@ async function registerUser(){
     },
     body: JSON.stringify(bodyParameters)
   });
-  const users = await rawResponse.json();
+
+  alert("Account succesfully created!");
+  window.location.href = 'login.html';
 }

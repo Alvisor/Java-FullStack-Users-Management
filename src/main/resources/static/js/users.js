@@ -8,10 +8,7 @@ async function loadUsers(){
 
   const rawResponse = await fetch('api/getUsers', {
     method: 'GET',
-    headers: {
-      'Accept': 'application/json',
-      'Content-Type': 'application/json'
-    },
+    headers:  getHeaders(),
   });
   const users = await rawResponse.json();
 
@@ -38,10 +35,15 @@ async function deleteUser(id){
 
     const rawResponse = await fetch('api/deleteUser/'+id, {
         method: 'DELETE',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
+        headers: getHeaders(),
       });
        location.reload();
+}
+
+function getHeaders(){
+    return {
+                     'Accept': 'application/json',
+                     'Content-Type': 'application/json',
+                     'Authorization': localStorage.token
+           }
 }

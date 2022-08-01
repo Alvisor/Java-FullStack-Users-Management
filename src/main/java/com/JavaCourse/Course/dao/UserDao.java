@@ -11,4 +11,9 @@ public interface UserDao {
     void deleteUser(Long id);
 
     void createUser(User user);
+
+
+    boolean verifyLogin(User user);
+
+    User getUserByLoginCredential(User user);
 }
